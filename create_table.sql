@@ -1,7 +1,7 @@
 
 CREATE DATABASE SV_Seedbank_DB; 
 
-USE employee_db; 
+USE SV_Seedbank_DB; 
 
 CREATE TABLE SunRequirement(
     req_id INT PRIMARY KEY, 
@@ -44,27 +44,26 @@ CREATE TABLE Partner(
 
 );
 
-ALTER TABLE DEPARTMENT ADD CONSTRAINT foreignKey FOREIGN KEY(Mgr_ssn) REFERENCES EMPLOYEE(Ssn);
+CREATE TABLE Members (
 
-CREATE TABLE DEPT_LOCATIONS (
-
-    Dnumber INTEGER,
-    Dlocation VARCHAR(50),
-
-    PRIMARY KEY(Dnumber, Dlocation),
-
-    FOREIGN KEY(Dnumber) REFERENCES DEPARTMENT(Dnumber)
+    member_id INT PRIMARY KEY, 
+    f_name VARCHAR(100) NOT NULL,
+    l_name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL, 
+    join_date DATE NOT NULL, 
+    status VARCHAR(100) NOT NULL
 
 
 );
 
-CREATE TABLE PROJECT (
-    Pname VARCHAR(50) NOT NULL,
-    Pnumber INTEGER PRIMARY KEY,
-    Plocation VARCHAR(50) NOT NULL,
-    Dnum INTEGER,
+CREATE TABLE Location (
+    location_id INT PRIMARY KEY,
+    partner_id INT,
+    loc_name VARCHAR(100) NOT NULL,
+    loc_type VARCHAR (100),
+    address VARCHAR(150) NOT NULL,
 
-    FOREIGN KEY (Dnum) REFERENCES DEPARTMENT(Dnumber)
+    FOREIGN KEY (partner_id) REFERENCES Partner(partner_id)
 );
 
 CREATE TABLE WORKS_ON (
