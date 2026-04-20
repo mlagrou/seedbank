@@ -31,7 +31,7 @@ CREATE TABLE Species(
 
     FOREIGN KEY(sun_req) REFERENCES Sun_Requirement(req_id),
     FOREIGN KEY(soil_req) REFERENCES Soil_Requirement(req_id),
-    FOREIGN KEY(water_req) REFERENCES Water_Requirements(req_id)
+    FOREIGN KEY(water_req) REFERENCES Water_Requirement(req_id)
 );
 
 CREATE TABLE Partner(

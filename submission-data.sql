@@ -1,3 +1,4 @@
+USE SV_Seedbank_DB; 
 
 INSERT INTO Sun_Requirement (req_id, requirement) VALUES
 (1,'Full Sun'),
@@ -22,21 +23,21 @@ INSERT INTO Water_Requirement (req_id, requirement) VALUES
 (4,'Medium / High'),
 (5,'High');
 
-INSERT INTO Species (species_id, common_name, scietific_name, sun_req, soil_req, water_req, description) VALUES
+INSERT INTO Species (species_id, scietific_name, common_name,  sun_req, soil_req, water_req, description) VALUES
 (1,'Asclepias tuberosa','Butterfly Weed',1,1,1,"Full sun, dry soil specialist; monarch host plant"),
 (2,'Echinacea purpurea','Purple Coneflower',2,2,3,'Adaptable prairie perennial; medicinal uses'),
 (3,'Lobelia cardinalis','Cardinal Flower',3,5,5,'Shade-tolerant; brilliant red; hummingbird magnet'),
 (4,'Andropogon gerardii','Big Bluestem',1,3,2,'Dominant tallgrass prairie grass; deep roots'),
 (5,'Baptisia australis','Blue Wild Indigo',1,4,1,"Drought tolerant legume; slow to establish"),
-(6,'Monarda fistulosa,Wild Bergamot',1,2,3,'Fragrant lavender blooms; excellent for bees'),
+(6,'Monarda fistulosa','Wild Bergamot',1,2,3,'Fragrant lavender blooms; excellent for bees'),
 (7,'Sorghastrum nutans','Indiangrass',1,3,1,'Warm season grass; golden fall color'),
 (8,'Penstemon digitalis','Foxglove Beardtongue',2,2,3,'Tolerates clay; white tubular flowers'),
 (9,'Rudbeckia hirta','Black-eyed Susan',1,4,2,'Classic adaptable wildflower; very hardy'),
 (10,'Zizia aurea','Golden Alexanders',3,6,4,'Early spring bloomer; supports specialist bees'),
 (11,'Trillium grandiflorum','White Trillium',4,5,4,'Full shade woodland wildflower; slow growing'),
-(12,'Aquilegia canadensis','Wild Columbine',3,4,3,'Part shade'; 'red and yellow; hummingbird favorite'),
-(13,'Carex pensylvanica,Pennsylvania Sedge',4,2,3,'Full shade groundcover'; 'low maintenance'),
-(14',Mertensia virginica','Virginia Bluebells',3,5,4,'Spring ephemeral; moist woodland edges'),
+(12,'Aquilegia canadensis','Wild Columbine',3,4,3,'Part shade; red and yellow; hummingbird favorite'),
+(13,'Carex pensylvanica','Pennsylvania Sedge',4,2,3,'Full shade groundcover; low maintenance'),
+(14,'Mertensia virginica','Virginia Bluebells',3,5,4,'Spring ephemeral; moist woodland edges'),
 (15,'Spartina pectinata','Prairie Cordgrass',1,6,5,'Full sun; wet to moist; excellent erosion control'),
 (16,'Iris virginica','Southern Blue Flag',2,6,5,'Wetland iris; blue-violet blooms'),
 (17,'Solidago canadensis','Canada Goldenrod',2,2,2,'Adaptable; late season pollinator powerhouse'),
@@ -46,12 +47,12 @@ INSERT INTO Species (species_id, common_name, scietific_name, sun_req, soil_req,
 
 INSERT INTO Partner (partner_id, p_name, contact, email, address) VALUES
 (1,'Saginaw Chippewa Tribal College','Dr. Anne Becker','abecker@sctc.edu',"2274 Enterprise Dr, Mt Pleasant MI"),
-(2,'Dow Diamond Community Garden','Jorge Reyes,jreyes@dowdiamond.org',"1 Willow St, Midland MI"),
+(2,'Dow Diamond Community Garden','Jorge Reyes','jreyes@dowdiamond.org',"1 Willow St, Midland MI"),
 (3,'Bay City State Park','Linda Marsh','lmarsh@michigan.gov',"3582 State Park Dr, Bay City MI"),
 (4,'Saginaw Basin Land Conservancy','Tom Gruber','tgruber@sblc.org',"5085 Mackinaw Rd, Saginaw MI"),
 (5,'MSU Extension Saginaw County','Rachel Kim','kimr@msu.edu',"111 S Michigan Ave, Saginaw MI"),
 (6,'Chippewa Nature Center','Paul Denton','pdenton@chippewanature.org',"400 S Badour Rd, Midland MI"),
-(7,'Saginaw Valley State University','Dr. Lena Hart,lhart@svsu.edu',"7400 Bay Rd, University Center MI"),
+(7,'Saginaw Valley State University','Dr. Lena Hart','lhart@svsu.edu',"7400 Bay Rd, University Center MI"),
 (8,'Northside Community Garden','Amara Diallo','amara@nscgarden.org',"1820 N Michigan Ave, Saginaw MI"),
 (9,'Great Lakes Bay Regional Alliance','Steve Nowak','snowak@glbra.org',"515 N Washington Ave, Saginaw MI"),
 (10,'Crow Island Woods Preserve','Janet Osei','josei@crowisland.org',"Crow Island Rd, Saginaw MI");
@@ -115,7 +116,7 @@ INSERT INTO Event (event_id, loc_id, event_name, event_date, event_type) VALUES
 (7, 8, 'Community Garden Planting', '2024-05-04', 'volunteer'),
 (8, 7, 'SBLC Restoration Kickoff', '2024-08-10', 'volunteer'),
 (9, 5, 'School Outreach Demo', '2024-10-03', 'educational'),
-(10, 3, 'Spring Cleaning', '2026-5-1', 'volunteer');
+(10, 3, 'Spring Cleaning', '2026-05-01', 'volunteer');
 
  
 INSERT INTO Event_member (event_id, member_id) VALUES
