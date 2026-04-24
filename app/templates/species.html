@@ -142,13 +142,13 @@ function submitForm(url, method, formId, modal) {
   const data = {};
   new FormData(form).forEach((v, k) => data[k] = v);
   if (!form.querySelector('[name="drought_tolerant"]').checked) data['drought_tolerant'] = 'false';
-  fetch(url, { method, headers: {'Content-Type':'application/json'}, body: JSON.stringify(data) })
-    .then(r => r.json()).then(() => location.reload());
+  apiCall(url, method, data)
+    .then(() => location.reload());
 }
 
 function doDelete(url) {
   if (!confirm('Delete this record? This cannot be undone.')) return;
-  fetch(url, { method: 'DELETE' }).then(r => r.json()).then(() => location.reload());
+  apiCall(url, 'DELETE', null).then(() => location.reload());
 }
 </script>
 {% endblock %}

@@ -34,7 +34,7 @@ def index():
 @app.route("/species", methods=["GET", "POST"])
 def species():
     if request.method == "POST":
-        d = request.get_json()
+        d = request.get_json(force=True)
         db["Species"].insert_one({
             "common_name": d["common_name"],
             "scientific_name": d["scientific_name"],
@@ -56,7 +56,7 @@ def species_item(sid):
     if request.method == "DELETE":
         db["Species"].delete_one({"_id": ObjectId(sid)})
         return jsonify({"ok": True})
-    d = request.get_json()
+    d = request.get_json(force=True)
     db["Species"].update_one({"_id": ObjectId(sid)}, {"$set": {
         "common_name": d["common_name"],
         "scientific_name": d["scientific_name"],
@@ -75,7 +75,7 @@ def species_item(sid):
 @app.route("/members", methods=["GET", "POST"])
 def members():
     if request.method == "POST":
-        d = request.get_json()
+        d = request.get_json(force=True)
         db["Member"].insert_one({
             "f_name": d["f_name"],
             "l_name": d["l_name"],
@@ -93,7 +93,7 @@ def members_item(mid):
     if request.method == "DELETE":
         db["Member"].delete_one({"_id": ObjectId(mid)})
         return jsonify({"ok": True})
-    d = request.get_json()
+    d = request.get_json(force=True)
     db["Member"].update_one({"_id": ObjectId(mid)}, {"$set": {
         "f_name": d["f_name"],
         "l_name": d["l_name"],
@@ -108,7 +108,7 @@ def members_item(mid):
 @app.route("/batch", methods=["GET", "POST"])
 def batch():
     if request.method == "POST":
-        d = request.get_json()
+        d = request.get_json(force=True)
         db["Batch"].insert_one({
             "species": d["species"],
             "collection_loc": {"name": d.get("collection_loc", "")},
@@ -128,7 +128,7 @@ def batch_item(bid):
     if request.method == "DELETE":
         db["Batch"].delete_one({"_id": ObjectId(bid)})
         return jsonify({"ok": True})
-    d = request.get_json()
+    d = request.get_json(force=True)
     db["Batch"].update_one({"_id": ObjectId(bid)}, {"$set": {
         "species": d["species"],
         "collection_loc": {"name": d.get("collection_loc", "")},
@@ -145,7 +145,7 @@ def batch_item(bid):
 @app.route("/distributions", methods=["GET", "POST"])
 def distributions():
     if request.method == "POST":
-        d = request.get_json()
+        d = request.get_json(force=True)
         batch_id = d.get("batch_id", "")
         quantity = int(d.get("quantity", 0))
         if batch_id:
@@ -180,7 +180,7 @@ def distributions_item(did):
                 pass
         db["Distribution"].delete_one({"_id": ObjectId(did)})
         return jsonify({"ok": True})
-    d = request.get_json()
+    d = request.get_json(force=True)
     dist = db["Distribution"].find_one({"_id": ObjectId(did)})
     old_qty = dist.get("quantity", 0) if dist else 0
     new_qty = int(d.get("quantity", 0))
@@ -207,7 +207,7 @@ def distributions_item(did):
 @app.route("/activities", methods=["GET", "POST"])
 def activities():
     if request.method == "POST":
-        d = request.get_json()
+        d = request.get_json(force=True)
         db["Activities"].insert_one({
             "member": d["member"],
             "location": d.get("location", ""),
@@ -225,7 +225,7 @@ def activities_item(aid):
     if request.method == "DELETE":
         db["Activities"].delete_one({"_id": ObjectId(aid)})
         return jsonify({"ok": True})
-    d = request.get_json()
+    d = request.get_json(force=True)
     db["Activities"].update_one({"_id": ObjectId(aid)}, {"$set": {
         "member": d["member"],
         "location": d.get("location", ""),
@@ -240,7 +240,7 @@ def activities_item(aid):
 @app.route("/events", methods=["GET", "POST"])
 def events():
     if request.method == "POST":
-        d = request.get_json()
+        d = request.get_json(force=True)
         db["Events"].insert_one({
             "event_name": d["event_name"],
             "event_date": d.get("event_date", ""),
@@ -259,7 +259,7 @@ def events_item(eid):
     if request.method == "DELETE":
         db["Events"].delete_one({"_id": ObjectId(eid)})
         return jsonify({"ok": True})
-    d = request.get_json()
+    d = request.get_json(force=True)
     db["Events"].update_one({"_id": ObjectId(eid)}, {"$set": {
         "event_name": d["event_name"],
         "event_date": d.get("event_date", ""),
@@ -273,7 +273,7 @@ def events_item(eid):
 @app.route("/partners", methods=["GET", "POST"])
 def partners():
     if request.method == "POST":
-        d = request.get_json()
+        d = request.get_json(force=True)
         db["Partners"].insert_one({
             "p_name": d["p_name"],
             "contact": d.get("contact", ""),
@@ -290,7 +290,7 @@ def partners_item(pid):
     if request.method == "DELETE":
         db["Partners"].delete_one({"_id": ObjectId(pid)})
         return jsonify({"ok": True})
-    d = request.get_json()
+    d = request.get_json(force=True)
     db["Partners"].update_one({"_id": ObjectId(pid)}, {"$set": {
         "p_name": d["p_name"],
         "contact": d.get("contact", ""),

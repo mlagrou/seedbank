@@ -123,13 +123,13 @@ function submitEdit() {
 
 function submitForm(url, method, formId, modal) {
   const data = Object.fromEntries(new FormData(document.getElementById(formId)));
-  fetch(url, { method, headers: {'Content-Type':'application/json'}, body: JSON.stringify(data) })
-    .then(r => r.json()).then(() => location.reload());
+  apiCall(url, method, data)
+    .then(() => location.reload());
 }
 
 function doDelete(url) {
   if (!confirm('Delete this event? This cannot be undone.')) return;
-  fetch(url, { method: 'DELETE' }).then(r => r.json()).then(() => location.reload());
+  apiCall(url, 'DELETE', null).then(() => location.reload());
 }
 </script>
 {% endblock %}

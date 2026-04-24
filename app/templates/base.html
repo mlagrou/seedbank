@@ -45,5 +45,19 @@
 <div class="container pb-5">
     {% block content %}{% endblock %}
 </div>
+<script>
+function apiCall(url, method, data) {
+  return fetch(url, {
+    method: method,
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(data)
+  })
+  .then(r => r.text().then(text => {
+    try { return JSON.parse(text); }
+    catch(e) { throw new Error('Server error (' + r.status + '): ' + text.slice(0, 200)); }
+  }))
+  .catch(err => { alert('Error: ' + err.message); throw err; });
+}
+</script>
 </body>
 </html>
