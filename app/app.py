@@ -300,6 +300,41 @@ def partners_item(pid):
     return jsonify({"ok": True})
 
 
+# ══ CUSTOM QUERY ══════════════════════════════════════
+ALLOWED_COLLECTIONS = ["Species", "Member", "Batch", "Distribution", "Activities", "Events", "Partners"]
+
+@app.route("/query", methods=["GET"])
+def query_page():
+    return render_template("query.html", collections=ALLOWED_COLLECTIONS)
+
+@app.route("/query/run", methods=["POST"])
+def query_run():
+    import json as _json
+    d = request.get_json(force=True)
+    collection = d.get("collection", "")
+    mode = d.get("mode", "find")
+    raw = d.get("query", "{}")
+    if collection not in ALLOWED_COLLECTIONS:
+        return jsonify({"error": "Invalid collection"}), 400
+    try:
+        parsed = _json.loads(raw)
+    except Exception as e:
+        return jsonify({"error": "Invalid JSON: " + str(e)}), 400
+    try:
+        col = db[collection]
+        if mode == "aggregate":
+            pipeline = parsed if isinstance(parsed, list) else [parsed]
+            rows = list(col.aggregate(pipeline))
+        else:
+            rows = list(col.find(parsed, {"_id": 0}))
+        for r in rows:
+            if "_id" in r:
+                r["_id"] = str(r["_id"])
+        return jsonify({"ok": True, "rows": rows})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
 # ══ INVENTORY (read-only aggregate) ═══════════════════
 @app.route("/inventory")
 def inventory():
