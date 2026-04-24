@@ -10,7 +10,7 @@
 <div class="table-responsive">
   <table class="table table-bordered table-hover shadow-sm">
     <thead>
-      <tr><th>Member</th><th>Species</th><th>Quantity</th><th>Date</th><th>Actions</th></tr>
+      <tr><th>Member</th><th>Species</th><th>Quantity</th><th>Date</th><th>Batch</th><th>Actions</th></tr>
     </thead>
     <tbody>
       {% for r in rows %}
@@ -19,6 +19,7 @@
         <td>{{ r.species }}</td>
         <td>{{ r.quantity }}</td>
         <td>{{ r.date }}</td>
+        <td><span class="badge-count">{{ r.batch_id or '—' }}</span></td>
         <td class="text-nowrap">
           <button class="btn btn-sm btn-outline-primary me-1"
             data-id="{{ r._id }}"
@@ -26,6 +27,7 @@
             data-species="{{ r.species }}"
             data-quantity="{{ r.quantity }}"
             data-date="{{ r.date }}"
+            data-batchid="{{ r.batch_id or '' }}"
             onclick="openEdit(this)">Edit</button>
           <button class="btn btn-sm btn-outline-danger"
             data-id="{{ r._id }}"
@@ -45,10 +47,20 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
       <div class="modal-body">
         <form id="addForm">
+          <div class="mb-2">
+            <label class="form-label">Batch (species — qty available) *</label>
+            <select class="form-select" name="batch_id" id="addBatch" onchange="onBatchChange(this, 'addSpecies')" required>
+              <option value="">— select a batch —</option>
+              {% for b in batches %}
+              <option value="{{ b._id }}" data-species="{{ b.species }}">
+                {{ b.species }} — {{ b.current_quantity }} available
+              </option>
+              {% endfor %}
+            </select>
+          </div>
+          <input type="hidden" name="species" id="addSpecies">
           <div class="mb-2"><label class="form-label">Member *</label>
             <input type="text" class="form-control" name="member" required placeholder="Full name"></div>
-          <div class="mb-2"><label class="form-label">Species *</label>
-            <input type="text" class="form-control" name="species" required></div>
           <div class="mb-2"><label class="form-label">Quantity *</label>
             <input type="number" class="form-control" name="quantity" min="1" required></div>
           <div class="mb-2"><label class="form-label">Date</label>
@@ -72,10 +84,20 @@
       <div class="modal-body">
         <input type="hidden" id="editId">
         <form id="editForm">
+          <div class="mb-2">
+            <label class="form-label">Batch *</label>
+            <select class="form-select" name="batch_id" id="editBatch" onchange="onBatchChange(this, 'editSpecies')" required>
+              <option value="">— select a batch —</option>
+              {% for b in batches %}
+              <option value="{{ b._id }}" data-species="{{ b.species }}">
+                {{ b.species }} — {{ b.current_quantity }} available
+              </option>
+              {% endfor %}
+            </select>
+          </div>
+          <input type="hidden" name="species" id="editSpecies">
           <div class="mb-2"><label class="form-label">Member *</label>
             <input type="text" class="form-control" name="member" id="editMember" required></div>
-          <div class="mb-2"><label class="form-label">Species *</label>
-            <input type="text" class="form-control" name="species" id="editSpecies" required></div>
           <div class="mb-2"><label class="form-label">Quantity *</label>
             <input type="number" class="form-control" name="quantity" id="editQty" min="1" required></div>
           <div class="mb-2"><label class="form-label">Date</label>
@@ -94,12 +116,19 @@
 const addModal = new bootstrap.Modal(document.getElementById('addModal'));
 const editModal = new bootstrap.Modal(document.getElementById('editModal'));
 
+function onBatchChange(select, speciesFieldId) {
+  const opt = select.options[select.selectedIndex];
+  document.getElementById(speciesFieldId).value = opt.dataset.species || '';
+}
+
 function openEdit(btn) {
   document.getElementById('editId').value = btn.dataset.id;
   document.getElementById('editMember').value = btn.dataset.member;
-  document.getElementById('editSpecies').value = btn.dataset.species;
   document.getElementById('editQty').value = btn.dataset.quantity;
   document.getElementById('editDate').value = btn.dataset.date;
+  document.getElementById('editSpecies').value = btn.dataset.species;
+  const sel = document.getElementById('editBatch');
+  sel.value = btn.dataset.batchid;
   editModal.show();
 }
 
@@ -114,7 +143,7 @@ function submitForm(url, method, formId, modal) {
 }
 
 function doDelete(url) {
-  if (!confirm('Delete this distribution? This cannot be undone.')) return;
+  if (!confirm('Delete this distribution? Inventory will be restored. This cannot be undone.')) return;
   fetch(url, { method: 'DELETE' }).then(r => r.json()).then(() => location.reload());
 }
 </script>

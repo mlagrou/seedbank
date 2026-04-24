@@ -146,27 +146,58 @@ def batch_item(bid):
 def distributions():
     if request.method == "POST":
         d = request.get_json()
+        batch_id = d.get("batch_id", "")
+        quantity = int(d.get("quantity", 0))
+        if batch_id:
+            db["Batch"].update_one(
+                {"_id": ObjectId(batch_id)},
+                {"$inc": {"current_quantity": -quantity}}
+            )
         db["Distribution"].insert_one({
+            "batch_id": batch_id,
             "species": d["species"],
             "member": d["member"],
-            "quantity": int(d.get("quantity", 0)),
+            "quantity": quantity,
             "date": d.get("date", "")
         })
         return jsonify({"ok": True})
     rows = to_list(db["Distribution"].find().sort("date", -1))
-    return render_template("distributions.html", rows=rows)
+    batches = to_list(db["Batch"].find({"current_quantity": {"$gt": 0}}).sort("species", 1))
+    return render_template("distributions.html", rows=rows, batches=batches)
 
 
 @app.route("/distributions/<did>", methods=["PUT", "DELETE"])
 def distributions_item(did):
     if request.method == "DELETE":
+        dist = db["Distribution"].find_one({"_id": ObjectId(did)})
+        if dist and dist.get("batch_id"):
+            try:
+                db["Batch"].update_one(
+                    {"_id": ObjectId(dist["batch_id"])},
+                    {"$inc": {"current_quantity": dist.get("quantity", 0)}}
+                )
+            except Exception:
+                pass
         db["Distribution"].delete_one({"_id": ObjectId(did)})
         return jsonify({"ok": True})
     d = request.get_json()
+    dist = db["Distribution"].find_one({"_id": ObjectId(did)})
+    old_qty = dist.get("quantity", 0) if dist else 0
+    new_qty = int(d.get("quantity", 0))
+    batch_id = d.get("batch_id") or (dist.get("batch_id") if dist else "")
+    if batch_id:
+        try:
+            db["Batch"].update_one(
+                {"_id": ObjectId(batch_id)},
+                {"$inc": {"current_quantity": old_qty - new_qty}}
+            )
+        except Exception:
+            pass
     db["Distribution"].update_one({"_id": ObjectId(did)}, {"$set": {
+        "batch_id": batch_id,
         "species": d["species"],
         "member": d["member"],
-        "quantity": int(d.get("quantity", 0)),
+        "quantity": new_qty,
         "date": d.get("date", "")
     }})
     return jsonify({"ok": True})
