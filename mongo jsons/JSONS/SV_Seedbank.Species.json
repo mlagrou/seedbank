@@ -1,0 +1,286 @@
+[{
+  "_id": {
+    "$oid": "69e7e9da707fb35e0f90398b"
+  },
+  "species_id": 1,
+  "common_name": "Butterfly Weed",
+  "scientific_name": "Asclepias tuberosa",
+  "requirements": {
+    "sun": "Full Sun",
+    "soil": "Sandy / Dry",
+    "water": "Low"
+  },
+  "description": "Full sun, dry soil specialist; monarch host plant",
+  "drought_tolerant": true
+},
+{
+  "_id": {
+    "$oid": "69e7e9da707fb35e0f90398c"
+  },
+  "species_id": 2,
+  "common_name": "Purple Coneflower",
+  "scientific_name": "Echinacea purpurea",
+  "requirements": {
+    "sun": "Full Sun / Part Shade",
+    "soil": "Loamy",
+    "water": "Medium"
+  },
+  "description": "Adaptable prairie perennial; medicinal uses"
+},
+{
+  "_id": {
+    "$oid": "69e7e9da707fb35e0f90398d"
+  },
+  "species_id": 3,
+  "common_name": "Cardinal Flower",
+  "scientific_name": "Lobelia cardinalis",
+  "requirements": {
+    "sun": "Part Shade",
+    "soil": "Moist / Rich",
+    "water": "High"
+  },
+  "description": "Shade-tolerant; brilliant red; hummingbird magnet"
+},
+{
+  "_id": {
+    "$oid": "69e7e9da707fb35e0f90398e"
+  },
+  "species_id": 4,
+  "common_name": "Big Bluestem",
+  "scientific_name": "Andropogon gerardii",
+  "requirements": {
+    "sun": "Full Sun",
+    "soil": "Sandy / Clay",
+    "water": "Low / Medium"
+  },
+  "description": "Dominant tallgrass prairie grass; deep roots"
+},
+{
+  "_id": {
+    "$oid": "69e7e9da707fb35e0f90398f"
+  },
+  "species_id": 5,
+  "common_name": "Blue Wild Indigo",
+  "scientific_name": "Baptisia australis",
+  "requirements": {
+    "sun": "Full Sun",
+    "soil": "Well-drained",
+    "water": "Low"
+  },
+  "description": "Drought tolerant legume; slow to establish",
+  "drought_tolerant": true
+},
+{
+  "_id": {
+    "$oid": "69e7e9da707fb35e0f903990"
+  },
+  "species_id": 6,
+  "common_name": "Wild Bergamot",
+  "scientific_name": "Monarda fistulosa",
+  "requirements": {
+    "sun": "Full Sun",
+    "soil": "Loamy",
+    "water": "Medium"
+  },
+  "description": "Fragrant lavender blooms; excellent for bees"
+},
+{
+  "_id": {
+    "$oid": "69e7e9da707fb35e0f903991"
+  },
+  "species_id": 7,
+  "common_name": "Indiangrass",
+  "scientific_name": "Sorghastrum nutans",
+  "requirements": {
+    "sun": "Full Sun",
+    "soil": "Sandy / Clay",
+    "water": "Low"
+  },
+  "description": "Warm season grass; golden fall color",
+  "drought_tolerant": true
+},
+{
+  "_id": {
+    "$oid": "69e7e9da707fb35e0f903992"
+  },
+  "species_id": 8,
+  "common_name": "Foxglove Beardtongue",
+  "scientific_name": "Penstemon digitalis",
+  "requirements": {
+    "sun": "Full Sun / Part Shade",
+    "soil": "Loamy",
+    "water": "Medium"
+  },
+  "description": "Tolerates clay; white tubular flowers"
+},
+{
+  "_id": {
+    "$oid": "69e7e9da707fb35e0f903993"
+  },
+  "species_id": 9,
+  "common_name": "Black-eyed Susan",
+  "scientific_name": "Rudbeckia hirta",
+  "requirements": {
+    "sun": "Full Sun",
+    "soil": "Well-drained",
+    "water": "Low / Medium"
+  },
+  "description": "Classic adaptable wildflower; very hardy"
+},
+{
+  "_id": {
+    "$oid": "69e7e9da707fb35e0f903994"
+  },
+  "species_id": 10,
+  "common_name": "Golden Alexanders",
+  "scientific_name": "Zizia aurea",
+  "requirements": {
+    "sun": "Part Shade",
+    "soil": "Moist",
+    "water": "Medium / High"
+  },
+  "description": "Early spring bloomer; supports specialist bees"
+},
+{
+  "_id": {
+    "$oid": "69e7e9da707fb35e0f903995"
+  },
+  "species_id": 11,
+  "common_name": "White Trillium",
+  "scientific_name": "Trillium grandiflorum",
+  "requirements": {
+    "sun": "Full Shade",
+    "soil": "Moist / Rich",
+    "water": "Medium / High"
+  },
+  "description": "Full shade woodland wildflower; slow growing"
+},
+{
+  "_id": {
+    "$oid": "69e7e9da707fb35e0f903996"
+  },
+  "species_id": 12,
+  "common_name": "Wild Columbine",
+  "scientific_name": "Aquilegia canadensis",
+  "requirements": {
+    "sun": "Part Shade",
+    "soil": "Well-drained",
+    "water": "Medium"
+  },
+  "description": "Part shade; red and yellow; hummingbird favorite"
+},
+{
+  "_id": {
+    "$oid": "69e7e9da707fb35e0f903997"
+  },
+  "species_id": 13,
+  "common_name": "Pennsylvania Sedge",
+  "scientific_name": "Carex pensylvanica",
+  "requirements": {
+    "sun": "Full Shade",
+    "soil": "Loamy",
+    "water": "Medium"
+  },
+  "description": "Full shade groundcover; low maintenance"
+},
+{
+  "_id": {
+    "$oid": "69e7e9da707fb35e0f903998"
+  },
+  "species_id": 14,
+  "common_name": "Virginia Bluebells",
+  "scientific_name": "Mertensia virginica",
+  "requirements": {
+    "sun": "Part Shade",
+    "soil": "Moist / Rich",
+    "water": "Medium / High"
+  },
+  "description": "Spring ephemeral; moist woodland edges"
+},
+{
+  "_id": {
+    "$oid": "69e7e9da707fb35e0f903999"
+  },
+  "species_id": 15,
+  "common_name": "Prairie Cordgrass",
+  "scientific_name": "Spartina pectinata",
+  "requirements": {
+    "sun": "Full Sun",
+    "soil": "Moist",
+    "water": "High"
+  },
+  "description": "Full sun; wet to moist; excellent erosion control",
+  "flood_tolerant": true
+},
+{
+  "_id": {
+    "$oid": "69e7e9da707fb35e0f90399a"
+  },
+  "species_id": 16,
+  "common_name": "Southern Blue Flag",
+  "scientific_name": "Iris virginica",
+  "requirements": {
+    "sun": "Full Sun / Part Shade",
+    "soil": "Moist",
+    "water": "High"
+  },
+  "description": "Wetland iris; blue-violet blooms",
+  "flood_tolerant": true
+},
+{
+  "_id": {
+    "$oid": "69e7e9da707fb35e0f90399b"
+  },
+  "species_id": 17,
+  "common_name": "Canada Goldenrod",
+  "scientific_name": "Solidago canadensis",
+  "requirements": {
+    "sun": "Full Sun / Part Shade",
+    "soil": "Loamy",
+    "water": "Low / Medium"
+  },
+  "description": "Adaptable; late season pollinator powerhouse"
+},
+{
+  "_id": {
+    "$oid": "69e7e9da707fb35e0f90399c"
+  },
+  "species_id": 18,
+  "common_name": "New England Aster",
+  "scientific_name": "Symphyotrichum novae-angliae",
+  "requirements": {
+    "sun": "Full Sun / Part Shade",
+    "soil": "Sandy / Clay",
+    "water": "Medium"
+  },
+  "description": "Fall bloomer; critical for migrating monarchs"
+},
+{
+  "_id": {
+    "$oid": "69e7e9da707fb35e0f90399d"
+  },
+  "species_id": 19,
+  "common_name": "Little Bluestem",
+  "scientific_name": "Schizachyrium scoparium",
+  "requirements": {
+    "sun": "Full Sun",
+    "soil": "Sandy / Dry",
+    "water": "Low"
+  },
+  "description": "Dry sandy soil specialist; stunning fall color",
+  "drought_tolerant": true
+},
+{
+  "_id": {
+    "$oid": "69e7e9da707fb35e0f90399e"
+  },
+  "species_id": 20,
+  "common_name": "Mayapple",
+  "scientific_name": "Podophyllum peltatum",
+  "requirements": {
+    "sun": "Full Shade",
+    "soil": "Moist / Rich",
+    "water": "Medium"
+  },
+  "description": "Full shade groundcover; spreads by rhizome"
+}]

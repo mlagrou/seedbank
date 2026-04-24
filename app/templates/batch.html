@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+{% block title %} — Batches{% endblock %}
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2>Seed Batches</h2>
+  <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addModal">+ Add Batch</button>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-bordered table-hover shadow-sm">
+    <thead>
+      <tr>
+        <th>Species</th><th>Collection Location</th><th>Storage Location</th>
+        <th>Collected By</th><th>Date</th><th>Start Qty</th><th>Current Qty</th><th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for r in rows %}
+      <tr>
+        <td>{{ r.species }}</td>
+        <td>{{ r.collection_loc.name if r.collection_loc else '—' }}</td>
+        <td>{{ r.storage_loc.name if r.storage_loc else '—' }}</td>
+        <td>{{ r.collected_by or '—' }}</td>
+        <td>{{ r.date }}</td>
+        <td>{{ r.start_quantity }}</td>
+        <td>{{ r.current_quantity }}</td>
+        <td class="text-nowrap">
+          <button class="btn btn-sm btn-outline-primary me-1"
+            data-id="{{ r._id }}"
+            data-species="{{ r.species }}"
+            data-cloc="{{ r.collection_loc.name if r.collection_loc else '' }}"
+            data-sloc="{{ r.storage_loc.name if r.storage_loc else '' }}"
+            data-collector="{{ r.collected_by or '' }}"
+            data-date="{{ r.date }}"
+            data-start="{{ r.start_quantity }}"
+            data-current="{{ r.current_quantity }}"
+            onclick="openEdit(this)">Edit</button>
+          <button class="btn btn-sm btn-outline-danger"
+            data-id="{{ r._id }}"
+            onclick="doDelete('/batch/' + this.dataset.id)">Delete</button>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<!-- Add Modal -->
+<div class="modal fade" id="addModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title">Add Batch</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body">
+        <form id="addForm">
+          <div class="mb-2"><label class="form-label">Species *</label>
+            <input type="text" class="form-control" name="species" required></div>
+          <div class="mb-2"><label class="form-label">Collection Location</label>
+            <input type="text" class="form-control" name="collection_loc"></div>
+          <div class="mb-2"><label class="form-label">Storage Location</label>
+            <input type="text" class="form-control" name="storage_loc"></div>
+          <div class="mb-2"><label class="form-label">Collected By</label>
+            <input type="text" class="form-control" name="collected_by"></div>
+          <div class="mb-2"><label class="form-label">Date</label>
+            <input type="date" class="form-control" name="date"></div>
+          <div class="row g-2 mb-2">
+            <div class="col"><label class="form-label">Start Quantity</label>
+              <input type="number" class="form-control" name="start_quantity" min="0" value="0"></div>
+            <div class="col"><label class="form-label">Current Quantity</label>
+              <input type="number" class="form-control" name="current_quantity" min="0" value="0"></div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-success" onclick="submitForm('/batch', 'POST', 'addForm', addModal)">Add Batch</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Modal -->
+<div class="modal fade" id="editModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title">Edit Batch</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body">
+        <input type="hidden" id="editId">
+        <form id="editForm">
+          <div class="mb-2"><label class="form-label">Species *</label>
+            <input type="text" class="form-control" name="species" id="editSpecies" required></div>
+          <div class="mb-2"><label class="form-label">Collection Location</label>
+            <input type="text" class="form-control" name="collection_loc" id="editCloc"></div>
+          <div class="mb-2"><label class="form-label">Storage Location</label>
+            <input type="text" class="form-control" name="storage_loc" id="editSloc"></div>
+          <div class="mb-2"><label class="form-label">Collected By</label>
+            <input type="text" class="form-control" name="collected_by" id="editCollector"></div>
+          <div class="mb-2"><label class="form-label">Date</label>
+            <input type="date" class="form-control" name="date" id="editDate"></div>
+          <div class="row g-2 mb-2">
+            <div class="col"><label class="form-label">Start Quantity</label>
+              <input type="number" class="form-control" name="start_quantity" id="editStart" min="0"></div>
+            <div class="col"><label class="form-label">Current Quantity</label>
+              <input type="number" class="form-control" name="current_quantity" id="editCurrent" min="0"></div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" onclick="submitEdit()">Save Changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const addModal = new bootstrap.Modal(document.getElementById('addModal'));
+const editModal = new bootstrap.Modal(document.getElementById('editModal'));
+
+function openEdit(btn) {
+  document.getElementById('editId').value = btn.dataset.id;
+  document.getElementById('editSpecies').value = btn.dataset.species;
+  document.getElementById('editCloc').value = btn.dataset.cloc;
+  document.getElementById('editSloc').value = btn.dataset.sloc;
+  document.getElementById('editCollector').value = btn.dataset.collector;
+  document.getElementById('editDate').value = btn.dataset.date;
+  document.getElementById('editStart').value = btn.dataset.start;
+  document.getElementById('editCurrent').value = btn.dataset.current;
+  editModal.show();
+}
+
+function submitEdit() {
+  submitForm('/batch/' + document.getElementById('editId').value, 'PUT', 'editForm', editModal);
+}
+
+function submitForm(url, method, formId, modal) {
+  const data = Object.fromEntries(new FormData(document.getElementById(formId)));
+  fetch(url, { method, headers: {'Content-Type':'application/json'}, body: JSON.stringify(data) })
+    .then(r => r.json()).then(() => location.reload());
+}
+
+function doDelete(url) {
+  if (!confirm('Delete this batch? This cannot be undone.')) return;
+  fetch(url, { method: 'DELETE' }).then(r => r.json()).then(() => location.reload());
+}
+</script>
+{% endblock %}

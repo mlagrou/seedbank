@@ -1,0 +1,172 @@
+[
+  {
+    "batch_id": 1,
+    "species": "Butterfly Weed",
+    "collection_loc": {
+      "name": "Crow Island Woods Preserve",
+      "type": "natural area",
+      "address": "Crow Island Rd, Saginaw MI"
+    },
+    "storage_loc": {
+      "name": "SVSU Seedbank Storage",
+      "address": "7400 Bay Rd, University Center MI"
+    },
+    "collected_by": "Sarah Kowalski",
+    "date": "2024-03-10",
+    "start_quantity": 50,
+    "current_quantity": 50
+  },
+  {
+    "batch_id": 2,
+    "species": "Cardinal Flower",
+    "collection_loc": {
+      "name": "Bay City State Park Prairie",
+      "type": "natural area",
+      "address": "3582 State Park Dr, Bay City MI"
+    },
+    "storage_loc": {
+      "name": "SVSU Seedbank Storage",
+      "address": "7400 Bay Rd, University Center MI"
+    },
+    "collected_by": "Tom Walcott",
+    "date": "2024-04-02",
+    "start_quantity": 100,
+    "current_quantity": 100
+  },
+  {
+    "batch_id": 3,
+    "species": "Wild Bergamot",
+    "collection_loc": {
+      "name": "Dow Diamond Community Garden",
+      "type": "garden",
+      "address": "1 Willow St, Midland MI"
+    },
+    "storage_loc": {
+      "name": "SVSU Seedbank Storage",
+      "address": "7400 Bay Rd, University Center MI"
+    },
+    "collected_by": "Marcus Trent",
+    "date": "2024-04-15",
+    "start_quantity": 75,
+    "current_quantity": 75
+  },
+  {
+    "batch_id": 4,
+    "species": "White Trillium",
+    "collection_loc": {
+      "name": "Crow Island Woods Preserve",
+      "type": "natural area",
+      "address": "Crow Island Rd, Saginaw MI"
+    },
+    "storage_loc": {
+      "name": "SCTC Seed Lab",
+      "address": "2274 Enterprise Dr, Mt Pleasant MI"
+    },
+    "collected_by": "Sarah Kowalski",
+    "date": "2024-07-01",
+    "start_quantity": 30,
+    "current_quantity": 30
+  },
+  {
+    "batch_id": 5,
+    "species": "Wild Bergamot",
+    "collection_loc": {
+      "name": "Chippewa Nature Center Trail",
+      "type": "natural area",
+      "address": "400 S Badour Rd, Midland MI"
+    },
+    "storage_loc": {
+      "name": "SVSU Seedbank Storage",
+      "address": "7400 Bay Rd, University Center MI"
+    },
+    "collected_by": "Celia Beaumont",
+    "date": "2024-08-05",
+    "start_quantity": 200,
+    "current_quantity": 200
+  },
+  {
+    "batch_id": 6,
+    "species": "Big Bluestem",
+    "collection_loc": {
+      "name": "SBLC Restoration Site",
+      "type": "restoration site",
+      "address": "5085 Mackinaw Rd, Saginaw MI"
+    },
+    "storage_loc": {
+      "name": "SVSU Seedbank Storage",
+      "address": "7400 Bay Rd, University Center MI"
+    },
+    "collected_by": "Tom Walcott",
+    "date": "2024-03-25",
+    "start_quantity": 150,
+    "current_quantity": 150
+  },
+  {
+    "batch_id": 7,
+    "species": "Mayapple",
+    "collection_loc": {
+      "name": "Member Garden - Kowalski",
+      "type": "private garden",
+      "address": "Saginaw MI"
+    },
+    "storage_loc": {
+      "name": "SVSU Seedbank Storage",
+      "address": "7400 Bay Rd, University Center MI"
+    },
+    "collected_by": "Derek Hung",
+    "date": "2024-07-20",
+    "start_quantity": 10,
+    "current_quantity": 10
+  },
+  {
+    "batch_id": 8,
+    "species": "Canada Goldenrod",
+    "collection_loc": {
+      "name": "Dow Diamond Community Garden",
+      "type": "garden",
+      "address": "1 Willow St, Midland MI"
+    },
+    "storage_loc": {
+      "name": "SVSU Seedbank Storage",
+      "address": "7400 Bay Rd, University Center MI"
+    },
+    "collected_by": "Marcus Trent",
+    "date": "2024-05-10",
+    "start_quantity": 80,
+    "current_quantity": 80
+  },
+  {
+    "batch_id": 9,
+    "species": "Purple Coneflower",
+    "collection_loc": {
+      "name": "Member Garden - Kowalski",
+      "type": "private garden",
+      "address": "Saginaw MI"
+    },
+    "storage_loc": {
+      "name": "SCTC Seed Lab",
+      "address": "2274 Enterprise Dr, Mt Pleasant MI"
+    },
+    "collected_by": "Sarah Kowalski",
+    "date": "2024-06-03",
+    "start_quantity": 70,
+    "current_quantity": 70
+  },
+  {
+    "batch_id": 10,
+    "species": "Black-eyed Susan",
+    "collection_loc": {
+      "name": "SVSU Seedbank Storage",
+      "type": "storage facility",
+      "address": "7400 Bay Rd, University Center MI"
+    },
+    "storage_loc": {
+      "name": "SVSU Seedbank Storage",
+      "address": "7400 Bay Rd, University Center MI"
+    },
+    "collected_by": null,
+    "date": "2024-08-22",
+    "start_quantity": 25,
+    "current_quantity": 25
+  }
+]

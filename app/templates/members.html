@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+{% block title %} — Members{% endblock %}
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2>Members</h2>
+  <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addModal">+ Add Member</button>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-bordered table-hover shadow-sm">
+    <thead>
+      <tr><th>First Name</th><th>Last Name</th><th>Email</th><th>Join Date</th><th>Status</th><th>Actions</th></tr>
+    </thead>
+    <tbody>
+      {% for r in rows %}
+      <tr>
+        <td>{{ r.f_name }}</td>
+        <td>{{ r.l_name }}</td>
+        <td>{{ r.email }}</td>
+        <td>{{ r.join_date }}</td>
+        <td><span class="badge {{ 'bg-success' if r.status == 'active' else 'bg-secondary' }}">{{ r.status }}</span></td>
+        <td class="text-nowrap">
+          <button class="btn btn-sm btn-outline-primary me-1"
+            data-id="{{ r._id }}"
+            data-fname="{{ r.f_name }}"
+            data-lname="{{ r.l_name }}"
+            data-email="{{ r.email }}"
+            data-joindate="{{ r.join_date }}"
+            data-status="{{ r.status }}"
+            onclick="openEdit(this)">Edit</button>
+          <button class="btn btn-sm btn-outline-danger"
+            data-id="{{ r._id }}"
+            onclick="doDelete('/members/' + this.dataset.id)">Delete</button>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<!-- Add Modal -->
+<div class="modal fade" id="addModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title">Add Member</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body">
+        <form id="addForm">
+          <div class="row g-2 mb-2">
+            <div class="col"><label class="form-label">First Name *</label>
+              <input type="text" class="form-control" name="f_name" required></div>
+            <div class="col"><label class="form-label">Last Name *</label>
+              <input type="text" class="form-control" name="l_name" required></div>
+          </div>
+          <div class="mb-2"><label class="form-label">Email *</label>
+            <input type="email" class="form-control" name="email" required></div>
+          <div class="mb-2"><label class="form-label">Join Date</label>
+            <input type="date" class="form-control" name="join_date"></div>
+          <div class="mb-2"><label class="form-label">Status</label>
+            <select class="form-select" name="status">
+              <option value="active">Active</option>
+              <option value="inactive">Inactive</option>
+            </select></div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-success" onclick="submitForm('/members', 'POST', 'addForm', addModal)">Add Member</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Modal -->
+<div class="modal fade" id="editModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title">Edit Member</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body">
+        <input type="hidden" id="editId">
+        <form id="editForm">
+          <div class="row g-2 mb-2">
+            <div class="col"><label class="form-label">First Name *</label>
+              <input type="text" class="form-control" name="f_name" id="editFname" required></div>
+            <div class="col"><label class="form-label">Last Name *</label>
+              <input type="text" class="form-control" name="l_name" id="editLname" required></div>
+          </div>
+          <div class="mb-2"><label class="form-label">Email *</label>
+            <input type="email" class="form-control" name="email" id="editEmail" required></div>
+          <div class="mb-2"><label class="form-label">Join Date</label>
+            <input type="date" class="form-control" name="join_date" id="editJoinDate"></div>
+          <div class="mb-2"><label class="form-label">Status</label>
+            <select class="form-select" name="status" id="editStatus">
+              <option value="active">Active</option>
+              <option value="inactive">Inactive</option>
+            </select></div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" onclick="submitEdit()">Save Changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const addModal = new bootstrap.Modal(document.getElementById('addModal'));
+const editModal = new bootstrap.Modal(document.getElementById('editModal'));
+
+function openEdit(btn) {
+  document.getElementById('editId').value = btn.dataset.id;
+  document.getElementById('editFname').value = btn.dataset.fname;
+  document.getElementById('editLname').value = btn.dataset.lname;
+  document.getElementById('editEmail').value = btn.dataset.email;
+  document.getElementById('editJoinDate').value = btn.dataset.joindate;
+  document.getElementById('editStatus').value = btn.dataset.status;
+  editModal.show();
+}
+
+function submitEdit() {
+  submitForm('/members/' + document.getElementById('editId').value, 'PUT', 'editForm', editModal);
+}
+
+function submitForm(url, method, formId, modal) {
+  const data = Object.fromEntries(new FormData(document.getElementById(formId)));
+  fetch(url, { method, headers: {'Content-Type':'application/json'}, body: JSON.stringify(data) })
+    .then(r => r.json()).then(() => location.reload());
+}
+
+function doDelete(url) {
+  if (!confirm('Delete this member? This cannot be undone.')) return;
+  fetch(url, { method: 'DELETE' }).then(r => r.json()).then(() => location.reload());
+}
+</script>
+{% endblock %}

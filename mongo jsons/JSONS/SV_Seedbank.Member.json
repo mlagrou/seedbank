@@ -1,0 +1,110 @@
+[{
+  "_id": {
+    "$oid": "69e7de522ed556d1a0122400"
+  },
+  "member_id": "1",
+  "f_name": "Sarah",
+  "l_name": "Kowalski",
+  "email": "sarah.k@email.com",
+  "join_date": "2021-03-15",
+  "status": "active"
+},
+{
+  "_id": {
+    "$oid": "69e7de522ed556d1a0122401"
+  },
+  "member_id": "2",
+  "f_name": "Marcus",
+  "l_name": "Trent",
+  "email": "mtrent@email.com",
+  "join_date": "2022-06-01",
+  "status": "active"
+},
+{
+  "_id": {
+    "$oid": "69e7de522ed556d1a0122402"
+  },
+  "member_id": "3",
+  "f_name": "Dana",
+  "l_name": "Flores",
+  "email": "dflores@email.com",
+  "join_date": "2023-09-10",
+  "status": "inactive"
+},
+{
+  "_id": {
+    "$oid": "69e7de522ed556d1a0122403"
+  },
+  "member_id": "4",
+  "f_name": "James",
+  "l_name": "Obi",
+  "email": "jobi@email.com",
+  "join_date": "2024-04-20",
+  "status": "inactive"
+},
+{
+  "_id": {
+    "$oid": "69e7de522ed556d1a0122404"
+  },
+  "member_id": "5",
+  "f_name": "Priya",
+  "l_name": "Nair",
+  "email": "pnair@email.com",
+  "join_date": "2024-05-05",
+  "status": "active"
+},
+{
+  "_id": {
+    "$oid": "69e7de522ed556d1a0122405"
+  },
+  "member_id": "6",
+  "f_name": "Tom",
+  "l_name": "Walcott",
+  "email": "twalcott@email.com",
+  "join_date": "2020-01-08",
+  "status": "active"
+},
+{
+  "_id": {
+    "$oid": "69e7de522ed556d1a0122406"
+  },
+  "member_id": "7",
+  "f_name": "Celia",
+  "l_name": "Beaumont",
+  "email": "cbeaumont@email.com",
+  "join_date": "2021-11-03",
+  "status": "active"
+},
+{
+  "_id": {
+    "$oid": "69e7de522ed556d1a0122407"
+  },
+  "member_id": "8",
+  "f_name": "Raj",
+  "l_name": "Patel",
+  "email": "rpatel@email.com",
+  "join_date": "2023-02-14",
+  "status": "inactive"
+},
+{
+  "_id": {
+    "$oid": "69e7de522ed556d1a0122408"
+  },
+  "member_id": "9",
+  "f_name": "Nora",
+  "l_name": "Stein",
+  "email": "nstein@email.com",
+  "join_date": "2024-08-19",
+  "status": "active"
+},
+{
+  "_id": {
+    "$oid": "69e7de522ed556d1a0122409"
+  },
+  "member_id": "10",
+  "f_name": "Derek",
+  "l_name": "Hung",
+  "email": "dhung@email.com",
+  "join_date": "2019-06-22",
+  "status": "active"
+}]

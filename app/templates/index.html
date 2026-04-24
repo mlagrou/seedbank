@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block title %} — Home{% endblock %}
+{% block content %}
+<div class="text-center py-5">
+    <h1 class="display-5 fw-bold" style="color:#2d6a4f;">SV Seedbank Management System</h1>
+    <p class="lead text-muted">A database-backed web application for managing seed collections, members, events, and partners.</p>
+    <hr class="my-4">
+</div>
+<div class="row g-4">
+    <div class="col-md-4">
+        <a href="/species" class="text-decoration-none">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title" style="color:#2d6a4f;">Species</h5>
+                    <p class="card-text text-muted">Browse all plant species and filter by sun and water requirements.</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-4">
+        <a href="/inventory" class="text-decoration-none">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title" style="color:#2d6a4f;">Seed Inventory</h5>
+                    <p class="card-text text-muted">View current seed quantities and collection stats by location.</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-4">
+        <a href="/members" class="text-decoration-none">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title" style="color:#2d6a4f;">Members</h5>
+                    <p class="card-text text-muted">Track volunteer hours and top seed collectors.</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-4">
+        <a href="/distributions" class="text-decoration-none">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title" style="color:#2d6a4f;">Distributions</h5>
+                    <p class="card-text text-muted">See which members received which seeds and how many.</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-4">
+        <a href="/events" class="text-decoration-none">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title" style="color:#2d6a4f;">Events</h5>
+                    <p class="card-text text-muted">Review event attendance and guest records.</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-4">
+        <a href="/analytics" class="text-decoration-none">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title" style="color:#2d6a4f;">Analytics</h5>
+                    <p class="card-text text-muted">Compare seeds collected vs. distributed per species.</p>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+{% endblock %}

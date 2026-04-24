@@ -1,0 +1,110 @@
+[
+  {
+    "event_id": 1,
+    "event_name": "Spring Seed Swap",
+    "event_date": "2024-04-06",
+    "event_type": "member",
+    "location": "Dow Diamond Community Garden",
+    "member_attendance": ["Sarah Kowalski", "Marcus Trent", "James Obi"],
+    "guest_attendance": [
+      { "name": "Dev Sharma", "email": "dsharma@gmail.com" },
+      { "name": "Karen Walker", "email": "walkerin@gmail.com" }
+    ]
+  },
+  {
+    "event_id": 2,
+    "event_name": "Prairie Restoration Day",
+    "event_date": "2024-05-18",
+    "event_type": "volunteer",
+    "location": "Bay City State Park Prairie",
+    "member_attendance": ["Sarah Kowalski", "Tom Walcott"],
+    "guest_attendance": [
+      { "name": "Lila Graves", "email": "lgravs@hotmail.com" }
+    ]
+  },
+  {
+    "event_id": 3,
+    "event_name": "Native Plant Workshop",
+    "event_date": "2024-06-15",
+    "event_type": "educational",
+    "location": "Crow Island Woods Preserve",
+    "member_attendance": ["Marcus Trent", "Dana Flores"],
+    "guest_attendance": [
+      { "name": "Omar Hussain", "email": "ohussain@email.com" },
+      { "name": "Tanya Brooks", "email": "tbrooks@yahoo.com" }
+    ]
+  },
+  {
+    "event_id": 4,
+    "event_name": "Fall Harvest and Processing",
+    "event_date": "2024-09-28",
+    "event_type": "member",
+    "location": "SVSU Seedbank Storage",
+    "member_attendance": ["Sarah Kowalski", "Derek Hung"],
+    "guest_attendance": [
+      { "name": "Mike Janssen", "email": "mjanssen@gmail.com" }
+    ]
+  },
+  {
+    "event_id": 5,
+    "event_name": "Chippewa Trail Walk",
+    "event_date": "2024-07-13",
+    "event_type": "public",
+    "location": "Chippewa Nature Center Trail",
+    "member_attendance": ["Celia Beaumont"],
+    "guest_attendance": [
+      { "name": "Rosa Delgado", "email": "rdelgado@email.com" }
+    ]
+  },
+  {
+    "event_id": 6,
+    "event_name": "Partner Info Session",
+    "event_date": "2024-03-02",
+    "event_type": "partner",
+    "location": "MSU Extension Office",
+    "member_attendance": ["Tom Walcott", "Derek Hung"],
+    "guest_attendance": []
+  },
+  {
+    "event_id": 7,
+    "event_name": "Community Garden Planting",
+    "event_date": "2024-05-04",
+    "event_type": "volunteer",
+    "location": "Northside Garden Plots",
+    "member_attendance": ["Celia Beaumont"],
+    "guest_attendance": [
+      { "name": "Finn Calloway", "email": "fcalloway@yahoo.com" }
+    ]
+  },
+  {
+    "event_id": 8,
+    "event_name": "SBLC Restoration Kickoff",
+    "event_date": "2024-08-10",
+    "event_type": "volunteer",
+    "location": "SBLC Restoration Site",
+    "member_attendance": ["Sarah Kowalski", "Marcus Trent"],
+    "guest_attendance": [
+      { "name": "Yuki Tanaka", "email": "ytanaka@gmail.com" }
+    ]
+  },
+  {
+    "event_id": 9,
+    "event_name": "School Outreach Demo",
+    "event_date": "2024-10-03",
+    "event_type": "educational",
+    "location": "SCTC Seed Lab",
+    "member_attendance": ["Derek Hung"],
+    "guest_attendance": [
+      { "name": "Beth Cromwell", "email": "bcromwell@email.com" }
+    ]
+  },
+  {
+    "event_id": 10,
+    "event_name": "Spring Cleaning",
+    "event_date": "2026-05-01",
+    "event_type": "volunteer",
+    "location": "Bay City State Park Prairie",
+    "member_attendance": [],
+    "guest_attendance": []
+  }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "dist_id": 1,
+    "batch_id": 1,
+    "species": "Butterfly Weed",
+    "member": "Sarah Kowalski",
+    "quantity": 10,
+    "date": "2024-03-20"
+  },
+  {
+    "dist_id": 2,
+    "batch_id": 1,
+    "species": "Butterfly Weed",
+    "member": "Dana Flores",
+    "quantity": 5,
+    "date": "2024-04-02"
+  },
+  {
+    "dist_id": 3,
+    "batch_id": 2,
+    "species": "Cardinal Flower",
+    "member": "Marcus Trent",
+    "quantity": 15,
+    "date": "2024-04-15"
+  },
+  {
+    "dist_id": 4,
+    "batch_id": 3,
+    "species": "Wild Bergamot",
+    "member": "Sarah Kowalski",
+    "quantity": 10,
+    "date": "2024-07-01"
+  },
+  {
+    "dist_id": 5,
+    "batch_id": 4,
+    "species": "White Trillium",
+    "member": "Tom Walcott",
+    "quantity": 5,
+    "date": "2024-08-05"
+  },
+  {
+    "dist_id": 6,
+    "batch_id": 5,
+    "species": "Wild Bergamot",
+    "member": "Celia Beaumont",
+    "quantity": 20,
+    "date": "2024-08-10"
+  },
+  {
+    "dist_id": 7,
+    "batch_id": 6,
+    "species": "Big Bluestem",
+    "member": "Derek Hung",
+    "quantity": 10,
+    "date": "2024-07-20"
+  },
+  {
+    "dist_id": 8,
+    "batch_id": 8,
+    "species": "Canada Goldenrod",
+    "member": "Marcus Trent",
+    "quantity": 15,
+    "date": "2024-05-15"
+  },
+  {
+    "dist_id": 9,
+    "batch_id": 9,
+    "species": "Purple Coneflower",
+    "member": "Sarah Kowalski",
+    "quantity": 10,
+    "date": "2024-06-10"
+  },
+  {
+    "dist_id": 10,
+    "batch_id": 3,
+    "species": "Wild Bergamot",
+    "member": "James Obi",
+    "quantity": 5,
+    "date": "2024-08-22"
+  }
+]

@@ -1,0 +1,72 @@
+[
+{
+    "partner_id": "1",
+    "p_name": "Saginaw Chippewa Tribal College",
+    "contact": "Dr. Anne Becker",
+    "email": "abecker@sctc.edu",
+    "address": "2274 Enterprise Dr, Mt Pleasant MI"
+},
+{
+    "partner_id": "2",
+    "p_name": "Dow Diamond Community Garden",
+    "contact": "Jorge Reyes",
+    "email": "jreyes@dowdiamond.org",
+    "address": "1 Willow St, Midland MI"
+},
+{
+    "partner_id": "3",
+    "p_name": "Bay City State Park",
+    "contact": "Linda Marsh",
+    "email": "lmarsh@michigan.gov",
+    "address": "3582 State Park Dr, Bay City MI"
+},
+{
+    "partner_id": "4",
+    "p_name": "Saginaw Basin Land Conservancy",
+    "contact": "Tom Gruber",
+    "email": "tgruber@sblc.org",
+    "address": "5085 Mackinaw Rd, Saginaw MI"
+},
+{
+    "partner_id": "5",
+    "p_name": "MSU Extension Saginaw County",
+    "contact": "Rachel Kim",
+    "email": "kimr@msu.edu",
+    "address": "111 S Michigan Ave, Saginaw MI"
+},
+{
+    "partner_id": "6",
+    "p_name": "Chippewa Nature Center",
+    "contact": "Paul Denton",
+    "email": "pdenton@chippewanature.org",
+    "address": "400 S Badour Rd, Midland MI"
+},
+{
+    "partner_id": "7",
+    "p_name": "Saginaw Valley State University",
+    "contact": "Dr. Lena Hart",
+    "email": "lhart@svsu.edu",
+    "address": "7400 Bay Rd, University Center MI"
+},
+{
+    "partner_id": "8",
+    "p_name": "Northside Community Garden",
+    "contact": "Amara Diallo",
+    "email": "amara@nscgarden.org",
+    "address": "1820 N Michigan Ave, Saginaw MI"
+},
+{
+    "partner_id": "9",
+    "p_name": "Great Lakes Bay Regional Alliance",
+    "contact": "Steve Nowak",
+    "email": "snowak@glbra.org",
+    "address": "515 N Washington Ave, Saginaw MI"
+},
+{
+    "partner_id": "10",
+    "p_name": "Crow Island Woods Preserve",
+    "contact": "Janet Osei",
+    "email": "josei@crowisland.org",
+    "address": "Crow Island Rd, Saginaw MI"
+}
+]

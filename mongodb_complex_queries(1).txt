@@ -1,0 +1,77 @@
+
+Please create a database in MongoDB called employee, and then create two collections named employee and dependent. 
+Then, import the JSON files into each collection respectively.
+
+
+-----
+Query 1: MongoDB query to find employee names whose dependents have sex = "Female".
+
+In this query you have to rely on both collection. For this you can use aggregate, and $lookup.
+
+$lookup - Performs a left outer join between employee and dependent collections using employee_id as the join key
+$unwind - Deconstructs the dependents array so each dependent becomes a separate document
+$match — Filter dependents with sex = "Female"
+$project — Select only the fields you want
+```
+
+db.employee.aggregate([
+  {
+    $lookup: {
+      from: "dependent",
+      localField: "employee_id",
+      foreignField: "employee_id",
+      as: "dependents"
+    }
+  },
+  {
+    $unwind: "$dependents"
+  },
+  {
+    $match: {
+      "dependents.sex": "Female"
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      employee_id: 1,
+      full_name: { $concat: ["$first_name", " ", "$last_name"] }
+    }
+  }
+]);
+
+```
+
+Query 2: MongoDB Query to find employee names who have a daughter
+
+```
+
+db.employee.aggregate([
+  {
+    $lookup: {
+      from: "dependent",
+      localField: "employee_id",
+      foreignField: "employee_id",
+      as: "dependents"
+    }
+  },
+  {
+    $unwind: "$dependents"
+  },
+  {
+    $match: {
+      "dependents.relation": "Child",
+      "dependents.sex": "Female"
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      employee_id: 1,
+      full_name: { $concat: ["$first_name", " ", "$last_name"] },
+      daughter_name: "$dependents.dependent_name"
+    }
+  }
+]);
+
+```

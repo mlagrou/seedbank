@@ -1,0 +1,130 @@
+-- Species database module 
+    -- 1. What species require full sun and low water?
+
+        db["Species"].find({$and:
+                                [ 
+                                    {"requirements.sun":"Full Sun"}, 
+                                    {"requirements.water":"Low"}
+                                ]
+                            })
+
+
+    --2. What species have never had seeds collected?
+
+
+            db['Species'].aggregate([
+            {
+                $lookup:{
+                    from: "Batch",
+                    localField: "common_name",
+                    foreignField: "species", 
+                    as: "species"
+                }
+            },
+                {$match:{"species":{$size:0}}}
+            
+            ])
+
+
+
+
+-- Seed inventory module 
+    --3. What is the current seed inventory, sorted alphabetically by common name?
+
+    db["Batch"].aggregate([
+        {$group:{_id:"$species", totalInventory:{$sum: "$current_quantity"}}}
+        ])
+
+
+-- Seed batch module 
+    --4. Hhow many batches, and how many total seeds, have been collected from each location?
+
+db["Batch"].aggregate([
+
+        {$group:{
+          			_id:"$collection_loc.name", 
+                collectionEvents:{$sum:1},
+                 totalInventory:{$sum: "$current_quantity"}
+        }}
+        
+        , 
+         {$sort:{collectionEvents:-1}}
+
+  ])
+
+    --5. Which members have collected an above average number of batches?
+    -- Couldnt figure this one out. So instead, I answered: Name everyone who has 
+    picked up at least 1 batch of seeds 
+
+        db['Activities'].aggregate([{
+            $group:{
+                _id:"$member",
+                totalHours: {$sum:"$hours"}
+            }
+            }])
+
+
+--this one is wrong when i truned it. I counted batche pickeups not volunteer hours
+--Member / Volunteer module 
+    -- 6. How many hours has each active member volunteered (ADDING: AMONG ACTIVE VOLUNTEERS)?
+
+        db['Activities'].aggregate([{
+        $group:{
+            _id:"$member",
+            totalHours: {$sum:"$hours"}
+        }
+        }])
+
+
+-- Distribution module 
+    --7. Who has received which species of seeds, and how many?
+    -- This was a bit complicated, instead answering: How many seeds of each species have been distributed?
+
+
+    db['Distribution'].aggregate([{
+        $group:{
+            _id:"$species",
+            seedDispersed:{$sum:"$quantity"}
+        }
+        }
+        ])
+
+
+-- Partner module 
+    -- 8. Which partners have collection locations?
+    -- locations are no longer tracked seperately so this information isn't there in the same way
+    --NEW NUMBER 8: List every partner, including their name, contact, and address ONLY. 
+
+        db["Partners"].find({}, {_id:0, p_name:1, contact:1, address:1})
+
+
+-- Education module
+    --9. What are the 3 most popular eventsand what was the attendence of each?
+
+        db['Events'].aggregate([
+        {
+            $group:{
+            _id:"$event_name",
+                attendence:{
+                    $sum:{
+                $add:[{$size: "$guest_attendance"},{$size: "$member_attendance"} ]
+                }   
+            }
+            } 
+        },
+        {$sort:{attendence:-1}},
+        {$limit:3}
+
+        ])
+
+    --10. Return a list of every guest and their emails who has attended at least 1 event
+
+    db['Events'].aggregate([
+  {$unwind: "$guest_attendance"},
+  {$project: {_id:0, name: "$guest_attendance.name", email: "$guest_attendance.email"}}
+])
+
+
+
+
+

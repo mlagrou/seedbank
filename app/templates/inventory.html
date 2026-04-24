@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %} — Inventory{% endblock %}
+{% block content %}
+<h2>Current Seed Inventory</h2>
+<p class="text-muted">Aggregated totals from all active seed batches.</p>
+<div class="table-responsive">
+  <table class="table table-bordered table-hover shadow-sm">
+    <thead>
+      <tr><th>Species</th><th>Current Quantity</th></tr>
+    </thead>
+    <tbody>
+      {% for row in rows %}
+      <tr>
+        <td>{{ row._id }}</td>
+        <td>{{ row.quantity }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

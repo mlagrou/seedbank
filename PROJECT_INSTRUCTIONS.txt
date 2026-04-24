@@ -1,0 +1,161 @@
+Objective
+
+In this project, you will apply everything you have learned in this database course. You will design, build, and analyze a database system for a fictional organization using both MySQL and MongoDB.
+Step 1: Understand the Requirements
+
+Start by choosing or creating a fictional organization.
+It can be any type of organization (e.g., a school, hospital, library, store, or non-profit group).
+
+Tasks:
+
+    Write the name of your organization.
+
+    List at least five main activities or functions that the organization performs.
+
+    Think about what kind of management system this organization would need.
+
+    Example:
+    If you choose a Library, your system might include books, members, borrow records, staff, and payments.
+
+Submission: Post your organization idea and list of activities in the Discussion Portal. Please look into the example posted there.
+
+Step 2: Design Your Database Schema
+
+Now, the second phase of your final project is to begin by creating the schema diagram on paper. You will complete this step by step, following the process taught in class. Please keep in mind that part of your grade will be based on the work you complete on paper.
+
+Based on the project requirements, identify the necessary attributes and map them out on paper. Then, review and refine your design to create your final schema diagram. Finally, you will convert the paper version of your schema diagram into a digital version using draw.io. You must submit both the paper version and the draw.io version for evaluation.
+
+Submission: Submit both the paper version (PDF) and the Draw.io version (PDF) combined into a single PDF.
+
+ 
+Step 3: Create the ER Diagram
+
+ 
+
+The third phase of your final project is to develop the ER diagram. As we did in class, you will begin by creating it on paper first. In the paper version of the ER diagram, you will use Chen’s notation. Review and refine your design to ensure that all requirements are met.
+
+Next, you will create the final version of the ER diagram in draw.io, using Crow’s Foot notation. Please note that the paper version must use Chen’s notation, while the draw.io version must use Crow’s Foot notation. During the paper phase, be sure to follow each step exactly as demonstrated in class. You are required to submit both the paper version and the draw.io version of your ER diagram.
+
+Submission: Submit both the paper version (PDF) and the Draw.io version (PDF) combined into a single PDF.
+Step 4: Build the Database in MySQL
+
+You will now turn your design into a real MySQL database.
+
+Tasks:
+
+    Create all your tables using SQL commands (no GUI tools).
+
+        Include primary keys, foreign keys, and integrity constraints.
+
+    Save all your CREATE TABLE queries in a file called tables.sql.
+
+    Test it! When I run your tables.sql, it should recreate your database exactly as designed.
+
+Submission: tables.sql
+
+ 
+Step 5: Insert Data
+
+Now, add data to your database.
+
+Tasks:
+
+    Write INSERT INTO queries to add at least 10 rows of data per table.
+
+    Save these queries in a file called data.sql.
+
+    When I run data.sql, your database should be filled with your sample data.
+
+ 
+
+Submission: data.sql
+
+ 
+
+ 
+Step 6: Data Analytics in MySQL
+
+ 
+
+After that, you will write 10 SQL queries for data analysis, similar to what we did during the midterm makeover exam. You will create 10 different problems, each based on the requirements you defined for your organization management system.
+
+For example, if your project is based on the United Nations Development Programme (UNDP), you might want to analyze the top 10 donors. In that case, you would create a question such as “Find the top 10 donors of UNDP,” and write an SQL query that produces that result.
+
+You must compile all 10 questions along with their corresponding SQL queries into a single file named data_analysis.sql, and submit it as part of your project. I will run these queries individually to verify that they produce the correct results and that each query accurately satisfies its associated question.
+
+Submission: data_analysis.sql.
+
+ 
+Step 7: Identify Problems and Solutions
+
+Great! At this point, you have successfully created a MySQL database for your organization. Now, if you recall from the MongoDB chapter, we discussed several limitations and challenges associated with MySQL. Your next task is to identify three problems related to your database, phrased as questions.
+
+Reflect on MongoDB and its advantages over MySQL to determine what issues might exist in your current database design. Clearly state these three problems in question form.
+
+In the second part, you will write solutions from the perspective of a MongoDB database, explaining how MongoDB could be used to address or overcome the problems you identified.
+
+ 
+
+Submission: Please write this in the text editor
+
+ 
+Step 8: MongoDB Database Design
+
+The next phase is to start with the MongoDB database design. You are going to take a look at your MySQL database, and your task is to convert that into a MongoDB database design. Please follow all the steps that we covered in the classroom to convert your database to MongoDB.
+
+While creating the MongoDB database, it might be the case that you have to work with more than one collection. For example, if you have a UNDP organization, you might want to add a separate collection for donors, another collection for different non-profit organizations that work with the UNDP, and a finance collection to handle financial information. Similarly, you might have other collections as needed.
+
+No matter what the collections are, you need to make sure that all the data points, the 10 rows of data in each table you had, are migrated to the MongoDB database. This means there must be at least 10 entries in each collection. After that, you are going to submit the .json export from your collections.
+
+Tasks:
+
+    Convert your MySQL design into MongoDB collections.
+
+    Each collection should have at least 10 documents (same data as in MySQL).
+
+    Export your data as .json files for submission.
+
+ 
+
+Submission: Submit all the .json files from each collections by zipping them together.
+Step 9: Data Analytics in MongoDB
+
+Next, you will work on the same data analytics questions you completed in MySQL, but this time you will use MongoDB to perform the data analysis. You are going to write a MongoDB query for each of those 10 questions. Finally, you can submit the .mql file, or if that is difficult for you, you may write all the queries inside a .txt file and submit that. I will run each of those queries to ensure that all of them are functioning correctly.
+
+ 
+
+Submission: data_analytics_mongodb.txt
+
+ 
+Step 10: Presentation and Comparison
+
+ 
+
+At this point, you will have successfully completed your MongoDB database.
+
+Now that you have completed your database creation, the next step is to present your work. This will be your database demo. In this presentation, you are going to compare and contrast the database design you created in MySQL with the one in MongoDB. You will explain your tables, the data points you have, and how you are satisfying the original client requirements.
+
+Submission: Prepare 10-15 slides for the presentation. Submit slides.pdf
+
+ 
+Extra Credit: Application Layer + GitHub (Optional)
+
+ 
+
+The other thing you may have noticed in class is that we talked about the application layer, right? However, this class is not about the application layer; it is about the database. In the real world, no matter what kind of software or application you are working with, you will always use an application layer to insert data into the database and to read data from it. This is why I want you to work on the application layer as well.
+
+You can use any programming language to create the application layer, and you can use ChatGPT or any other AI assistant tool to help create it. If you want, you can simply use HTML, CSS, and PHP,  or if you are comfortable with Java, you can use Java as well. The choice of programming language is up to you. You can choose any language to create this app.
+
+This app will read the data from your database, display it, and should have at least five different data analysis queries that run to retrieve data from the database. If you complete this, you will receive extra credit points (10 pts) .
+
+ 
+
+In addition to that, you must submit all of your code and the ER diagram (in PDF version) to GitHub and share the GitHub link in Canvas. When you share your GitHub repository, you will be awarded five additional points (5 pts)
+
+ 
+
+Please note there are multiple portals with different submission deadlines.
+
+As I have mentioned from time to time, I grade based on your learning and want to make sure that you understand how a database is designed and used in real-world projects. I hope you learn a lot from this final project.
+
+Best of luck.

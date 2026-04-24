@@ -1,0 +1,82 @@
+[
+  {
+    "activity_id": 1,
+    "member": "Sarah Kowalski",
+    "location": "SCTC Seed Lab",
+    "hours": 3.0,
+    "date": "2024-04-05",
+    "description": "Seed cleaning"
+  },
+  {
+    "activity_id": 2,
+    "member": "Marcus Trent",
+    "location": "SCTC Seed Lab",
+    "hours": 2.5,
+    "date": "2024-04-05",
+    "description": "Seed cleaning"
+  },
+  {
+    "activity_id": 3,
+    "member": "Tom Walcott",
+    "location": "Bay City State Park Prairie",
+    "hours": 4.0,
+    "date": "2024-05-18",
+    "description": "Prairie restoration planting"
+  },
+  {
+    "activity_id": 4,
+    "member": "Sarah Kowalski",
+    "location": "SVSU Seedbank Storage",
+    "hours": 1.5,
+    "date": "2024-06-10",
+    "description": "Inventory update"
+  },
+  {
+    "activity_id": 5,
+    "member": "Dana Flores",
+    "location": "SVSU Seedbank Storage",
+    "hours": 2.0,
+    "date": "2024-03-22",
+    "description": "Packet assembly"
+  },
+  {
+    "activity_id": 6,
+    "member": "Celia Beaumont",
+    "location": "Chippewa Nature Center Trail",
+    "hours": 3.5,
+    "date": "2024-07-03",
+    "description": "Field collection - Bergamot"
+  },
+  {
+    "activity_id": 7,
+    "member": "Derek Hung",
+    "location": "Member Garden - Kowalski",
+    "hours": 5.0,
+    "date": "2024-08-18",
+    "description": "Field collection - Indiangrass"
+  },
+  {
+    "activity_id": 8,
+    "member": "Marcus Trent",
+    "location": "Dow Diamond Community Garden",
+    "hours": 2.0,
+    "date": "2024-09-28",
+    "description": "Harvest processing"
+  },
+  {
+    "activity_id": 9,
+    "member": "Tom Walcott",
+    "location": "Dow Diamond Community Garden",
+    "hours": 1.0,
+    "date": "2024-09-28",
+    "description": "Harvest processing"
+  },
+  {
+    "activity_id": 10,
+    "member": "Sarah Kowalski",
+    "location": "SVSU Seedbank Storage",
+    "hours": 3.0,
+    "date": "2024-10-05",
+    "description": "Species data entry"
+  }
+]

@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %} — Analytics{% endblock %}
+{% block content %}
+<h2>Data Analytics</h2>
+<p class="text-muted">10 analytical queries — SQL shown for reference, live results from MongoDB.</p>
+
+{% for q in queries %}
+<div class="card border-0 shadow-sm mb-4">
+  <div class="card-header" style="background-color:#d8f3dc;">
+    <strong>Q{{ q.number }}.</strong> {{ q.question }}
+  </div>
+  <div class="card-body p-0">
+    <ul class="nav nav-tabs px-3 pt-2" role="tablist">
+      <li class="nav-item">
+        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#mongo{{ q.number }}">MongoDB (Live)</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#sql{{ q.number }}">SQL Reference</button>
+      </li>
+    </ul>
+    <div class="tab-content px-3 pb-3 pt-2">
+
+      {# ── MongoDB Tab (default) ── #}
+      <div class="tab-pane fade show active" id="mongo{{ q.number }}">
+        <pre class="bg-light border rounded p-2 small mb-2" style="white-space:pre-wrap;">{{ q.mongo_text }}</pre>
+        {% if q.result %}
+          {% if q.result[0].keys()|list == ['error'] %}
+            <p class="text-danger mt-2">{{ q.result[0].error }}</p>
+          {% else %}
+            <div class="table-responsive mt-2">
+              <table class="table table-sm table-bordered table-hover mb-0">
+                <thead>
+                  <tr>{% for col in q.result[0].keys() %}<th>{{ col }}</th>{% endfor %}</tr>
+                </thead>
+                <tbody>
+                  {% for row in q.result %}
+                  <tr>{% for val in row.values() %}<td>{{ val }}</td>{% endfor %}</tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          {% endif %}
+        {% else %}
+          <p class="text-muted mt-2">No results.</p>
+        {% endif %}
+      </div>
+
+      {# ── SQL Reference Tab ── #}
+      <div class="tab-pane fade" id="sql{{ q.number }}">
+        <p class="text-muted small mt-2 mb-1">Equivalent SQL query (shown for reference — app uses MongoDB for deployment):</p>
+        <pre class="bg-light border rounded p-2 small" style="white-space:pre-wrap;">{{ q.sql_text }}</pre>
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endfor %}
+{% endblock %}
